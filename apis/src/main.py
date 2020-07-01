@@ -1,8 +1,9 @@
 from flask import Flask
-from flask import jsonify
 from shell_docker import get_docker_images_json, get_docker_containers_json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # check if app is running
 @app.route('/')
