@@ -1,1 +1,22 @@
 <h1>List of Docker Images</h1>
+
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Created Since</th>
+            <th scope="col">Image Name</th>
+            <th scope="col">Size</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let image of dockerImages">
+            <th scope="row">{{image.ID}}</th>
+            <td>{{image.CreatedSince}}</td>
+            <td>{{image.Repository}}:{{image.Tag}}</td>
+            <td>{{image.Size}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

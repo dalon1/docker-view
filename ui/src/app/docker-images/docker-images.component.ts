@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DockerImage } from 'src/models/DockerImage';
 
 
 @Component({
@@ -8,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./docker-images.component.css']
 })
 export class DockerImagesComponent implements OnInit {
+  private dockerImages: DockerImage[];
 
   constructor(private http:HttpClient) { }
 
@@ -15,12 +17,12 @@ export class DockerImagesComponent implements OnInit {
     this.getDockerImagesAPI()
   }
 
-  getDockerImagesAPI() {
-    const headers = new HttpHeaders()
-            .set("Accept", "application/json")
-            .set('Access-Control-Allow-Origin', '*');
-    
-    let dockerImages = this.http.get('http://localhost:8065/containers', {headers: headers}).subscribe(result => console.log(result))
+  getDockerImagesAPI() { 
+    console.log("Reading docker images API")
+    this.http.get('http://localhost:8065/images').subscribe((result: DockerImage[]) =>  {
+      console.log(result);
+      this.dockerImages = result;
+    })
   }
 
   

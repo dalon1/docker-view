@@ -1,1 +1,24 @@
 <h1>List of Docker Containers</h1>
+
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Container Name</th>
+            <th scope="col">Image Name</th>
+            <th scope="col">Size</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let container of dockerContainers">
+            <th scope="row">{{container.ID}}</th>
+            <td>{{container.Names}}</td>
+            <td>{{container.Image}}</td>
+            <td>{{container.Size}}</td>
+            <td>{{container.Status}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
